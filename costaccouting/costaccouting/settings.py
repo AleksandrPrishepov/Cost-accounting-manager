@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -133,3 +132,5 @@ REST_FRAMEWORK = {
             'rest_framework.authentication.SessionAuthentication',
         ]
 }
+
+AUTH_USER_MODEL = 'core.User'
