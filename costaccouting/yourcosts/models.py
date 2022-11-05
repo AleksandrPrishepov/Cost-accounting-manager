@@ -4,6 +4,7 @@ from django.db import models
 class User(AbstractUser):
     """Добавляем в модель User поле 'баланс'"""
     balance = models.DecimalField(blank=True, max_digits=10, decimal_places=2, verbose_name='баланс')
+    categorys = models.ManyToManyField('Category')
 
 class InfotmationTransaction(models.Model):
     costs_sum = models.DecimalField(blank=True, max_digits=10, decimal_places=2, verbose_name='cумма')
@@ -13,5 +14,7 @@ class InfotmationTransaction(models.Model):
     description = models.TextField(max_length=250, verbose_name='описание')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
 
+class Category(models.Model):
+    name_cat = models.CharField(max_length=100, verbose_name='название категории')
 
 
