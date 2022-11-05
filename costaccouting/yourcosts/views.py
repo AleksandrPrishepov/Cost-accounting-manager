@@ -8,7 +8,7 @@ from .serializers import *
 class UserRegister(APIView):
     # permission_classes = [IsAuthenticated]
     def get(self,request):
-        users = User.objects.all()
+        users = CustomUser.objects.all()
         serializer = UserRegisterSerializer(users, many=True)
         return Response({"post":serializer.data})
 

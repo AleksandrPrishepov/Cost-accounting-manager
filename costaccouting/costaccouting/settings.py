@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'yourcosts.apps.YourcostsConfig',
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser'
+    'djoser',
+
+
 ]
 
 MIDDLEWARE = [
