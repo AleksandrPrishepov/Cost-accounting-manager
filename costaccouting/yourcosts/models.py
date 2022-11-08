@@ -19,12 +19,12 @@ class User(AbstractUser):
 
 class InfotmationTransaction(models.Model):
     """Данные по транзакции"""
-    costs_sum = models.DecimalField(blank=True, max_digits=10, decimal_places=2, verbose_name='cумма')
+    costs_sum = models.DecimalField(blank=False, max_digits=10, decimal_places=2, verbose_name='cумма')
     time_operation = models.TimeField(auto_now_add=True, verbose_name='время')
     category = models.CharField(max_length=100, verbose_name='категория')
     organization = models.CharField(max_length=100, verbose_name='организация')
     description = models.TextField(max_length=250, verbose_name='описание')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь', null=True)
 
     class Meta:
         verbose_name = 'Информация по транзакции'
@@ -32,7 +32,7 @@ class InfotmationTransaction(models.Model):
         ordering = ('user',)
 
     def __str__(self):
-        return self.pk
+        return self.category
 
 
 class Category(models.Model):

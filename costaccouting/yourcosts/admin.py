@@ -6,6 +6,7 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('id', 'username', 'email', 'balance')
     list_display_links = ('username',)
     search_fields = ('username',)
+    filter_horizontal = ('category',)
 
 
 class InfotmationTransactionAdmin(admin.ModelAdmin):
