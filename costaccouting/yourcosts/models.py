@@ -19,6 +19,7 @@ class User(AbstractUser):
 
 class InfotmationTransaction(models.Model):
     """Данные по транзакции"""
+
     costs_sum = models.DecimalField(blank=False, max_digits=10, decimal_places=2, verbose_name='cумма')
     time_operation = models.TimeField(auto_now_add=True, verbose_name='время')
     category = models.CharField(max_length=100, verbose_name='категория')
@@ -36,6 +37,7 @@ class InfotmationTransaction(models.Model):
 
 
 class Category(models.Model):
+
     name_cat = models.CharField(max_length=100, verbose_name='название категории')
 
     class Meta:

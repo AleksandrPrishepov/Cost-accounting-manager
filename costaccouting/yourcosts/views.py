@@ -1,5 +1,5 @@
 from django.db import transaction
-
+from django.db.models import Count
 from rest_framework.permissions import *
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -60,15 +60,26 @@ class MyBalance(APIView):
     """Просмотр своего баланса"""
     permission_classes = [IsAuthenticated]
 
-    def get(self, **kwargs):
+    def get(self, request, **kwargs):
         pk = kwargs.get('pk')
         my_balance = User.objects.get(pk=pk)
         serializer = UserSerializer(my_balance)
+        # count_tr = InfotmationTransaction.objects.values('user_id').annotate(Count('id'))
+        # print(len(count_tr))
         return Response({"мой баланс": serializer.data['balance']})
 
+    def put(self, request, **kwargs):
+        pk = kwargs.get('pk')
+        instance = User.objects.get(pk=pk)
+        serializer = UserSerializer(data=request.data, instance=instance)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({"общий баланс": UserSerializer(instance).data['balance']})
 
 class Transaction(APIView):
     """Проводим транзакции"""
+    permission_classes = [IsAuthenticated]
+
     @transaction.atomic()
     def post(self, request, *args, **kwargs):
         pk = kwargs.get('pk')

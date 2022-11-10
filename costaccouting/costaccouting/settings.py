@@ -136,3 +136,10 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'yourcosts.User'
+
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'sanyaprishepov@mail.ru'
+EMAIL_HOST_PASSWORD = '12yazabilparol'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True

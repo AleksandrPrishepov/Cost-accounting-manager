@@ -9,7 +9,7 @@ connection = ps.connect(
     database='notebooks',
     port=5432
 )
-#     1. создаем базу данныхnotebooks
+#     1. создаем базу данных notebooks
 # cursor = connection.cursor()
 # connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 # cursor.execute("CREATE DATABASE notebooks")

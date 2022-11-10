@@ -11,7 +11,13 @@ class UserSerializer(serializers.ModelSerializer):
         for i in Category.objects.filter(pk__lte=10):
             person.category.add(i)
         return person
+    def update(self, instance, validated_data):
 
+        instance.username = validated_data.get("username", instance.username)
+        instance.password = validated_data.get("password", instance.password)
+        instance.balance = instance.balance + validated_data.get('balance')
+        instance.save()
+        return instance
     class Meta:
         model = User
         fields = ['username', 'password', 'email', 'balance']
