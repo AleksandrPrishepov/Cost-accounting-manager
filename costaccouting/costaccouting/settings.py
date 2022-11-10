@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +39,9 @@ INSTALLED_APPS = [
     'yourcosts.apps.YourcostsConfig',
     'rest_framework',
     'rest_framework.authtoken',
-    'djoser'
+    'djoser',
+
+
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,12 @@ REST_FRAMEWORK = {
             'rest_framework.authentication.SessionAuthentication',
         ]
 }
+
+AUTH_USER_MODEL = 'yourcosts.User'
+
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'sanyaprishepov@mail.ru'
+EMAIL_HOST_PASSWORD = '12yazabilparol'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
