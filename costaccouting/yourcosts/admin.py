@@ -14,6 +14,7 @@ class InfotmationTransactionAdmin(admin.ModelAdmin):
                     'category', 'organization', 'description')
     list_display_links = ('user', 'costs_sum')
     search_fields = ('user',)
+    list_editable = ('category',)
     list_filter = ('user', 'time_operation')
 
 

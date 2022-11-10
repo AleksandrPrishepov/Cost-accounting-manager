@@ -22,7 +22,7 @@ def sent_mail():
                 )
                     break
 
-schedule.every().day.at("8:00").do(sent_mail())
+schedule.every().day.at("21:18").do(sent_mail())
 
 while True:
     schedule.run_pending()

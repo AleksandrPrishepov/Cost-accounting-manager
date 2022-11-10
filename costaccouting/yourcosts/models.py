@@ -38,6 +38,7 @@ class InfotmationTransaction(models.Model):
 
 class Category(models.Model):
 
+    # name_cat = models.CharField(max_length=5, choices=CATEGORY_CHOICES, default=False)
     name_cat = models.CharField(max_length=100, verbose_name='название категории')
 
     class Meta:
